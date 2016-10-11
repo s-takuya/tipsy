@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if signed_in? %>
+      <%= image_tag current_user.image %>
+      <%= link_to 'サインアウト', sign_out_path, method: :delete %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
