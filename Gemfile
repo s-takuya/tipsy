@@ -18,6 +18,7 @@ gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
 
 group :development do
