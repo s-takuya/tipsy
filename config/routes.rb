@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
 
+  resources :tags
   resources :posts, except: %i(index)
 
   get '/sign_in',                 to: 'sessions#new',     as: :sign_in

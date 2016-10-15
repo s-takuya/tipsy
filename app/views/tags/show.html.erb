@@ -1,0 +1,8 @@
+<% @tag.posts.each do |post| %>
+  <div>
+    <%= image_tag post.image.url %>
+  </div>
+  <div>
+    <%= post.body %>
+  </div>
+<% end %>
