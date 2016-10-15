@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'posts#index'
+  root to: 'top#index'
 
   resources :tags, only: %i(index show), param: :name
   resources :posts, except: %i(index)
