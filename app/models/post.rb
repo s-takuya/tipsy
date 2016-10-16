@@ -7,14 +7,15 @@ class Post < ApplicationRecord
 
   before_validation :bulid_tags
 
-  has_many :tag_posts
+  has_many :tag_posts, dependent: :destroy
   has_many :tags, through: :tag_posts
 
   def bulid_tags
-    already_tags = tags.pluck(:name)
-    new_tags = body.scan(/#[^\s]+/)
-    new_tags.each { |name| name.sub!(/^#/, '') }
-    new_tags.reject! { |name| already_tags.include?(name) }
-    tags << new_tags.map { |name| Tag.find_or_create_by(name: name) }
+    tag_posts.delete_all
+    tag_names = body.scan(/#[^\s]+/)
+    tag_names.each { |name| name.sub!(/^#/, '') }
+    tag_objects = tag_names.map { |name| Tag.new(name: name) }
+    Tag.import(tag_objects, on_duplicate_key_update: :name)
+    tags << Tag.where(name: tag_names)
   end
 end
