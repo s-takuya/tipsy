@@ -83,10 +83,8 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     storage: :s3,
-    :s3_credentials => {
-      s3_region: 's3-ap-northeast-1.amazonaws.com',
-      s3_credentials: { 'get-tipsy' }
-    }
+    s3_region: 's3-ap-northeast-1.amazonaws.com',
+    s3_credentials: { bucket: 'get-tipsy' }
   }
 
   # Do not dump schema after migrations.
