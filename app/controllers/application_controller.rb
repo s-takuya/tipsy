@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @_current_user ||= begin
-      if (id = session[:user_id])
+      if (id = cookies[:_A])
         User.find(id)
       end
     end
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def current_user=(user)
     return unless user
-    session[:user_id] = user.id
+    cookies[:_A] = user.id
     @_current_user    = user
   end
 
