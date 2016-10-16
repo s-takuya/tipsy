@@ -12,6 +12,7 @@
     <% if signed_in? %>
       <%= image_tag current_user.image %>
       <%= link_to 'サインアウト', sign_out_path, method: :delete %>
+      <%= link_to 'New Post', new_post_path %>
     <% end %>
     <%= link_to 'root', root_path %>
 

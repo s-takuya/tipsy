@@ -16,7 +16,7 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'aws-sdk', '~> 2'
 gem 'omniauth-facebook'
 gem 'activerecord-import'
-
+gem 'active_decorator'
 
 group :development, :test do
   gem 'byebug', platform: :mri
