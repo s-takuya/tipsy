@@ -1,8 +1,8 @@
-<% @tag.posts.each do |post| %>
+<% @posts.each do |post| %>
   <div>
     <%= image_tag post.image.url %>
   </div>
   <div>
-    <%= post.body %>
+    <%= post.body_with_tag_link %>
   </div>
 <% end %>
