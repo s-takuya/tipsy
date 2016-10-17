@@ -1,0 +1,11 @@
+%p#notice= notice
+%h1 Tags
+%table
+  %thead
+    %tr
+      %th Body
+      %th{ colspan: 3 }
+  %tbody
+    - @tags.each do |tag|
+      %tr
+        %td= link_to '#' + tag.name, tag_path(name: tag.name)
