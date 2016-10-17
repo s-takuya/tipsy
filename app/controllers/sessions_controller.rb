@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    render layout: false
   end
 
   def callback
@@ -18,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
+    sign_out
     redirect_to sign_in_path
   end
 

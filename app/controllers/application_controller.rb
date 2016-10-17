@@ -19,7 +19,12 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     return unless user
     cookies[:_A] = user.id
-    @_current_user    = user
+    @_current_user = user
+  end
+
+  def sign_out
+    self.current_user = nil
+    cookies[:_A] = ''
   end
 
   def signed_in?
