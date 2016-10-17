@@ -17,6 +17,7 @@ gem 'aws-sdk', '~> 2'
 gem 'omniauth-facebook'
 gem 'activerecord-import'
 gem 'active_decorator'
+gem 'haml'
 
 group :development, :test do
   gem 'byebug', platform: :mri
