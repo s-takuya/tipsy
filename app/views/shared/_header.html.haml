@@ -1,0 +1,18 @@
+%header
+  .header-content
+    = link_to 'Tipsy', root_path, class: 'header-content__logo'
+    %ul.header-content__menu
+      %li
+        = link_to tags_path do
+          %i.fa.fa-search.fa-lg
+      %li
+        = link_to new_post_path do
+          %i.fa.fa-pencil-square-o.fa-lg
+      %li
+        - if signed_in?
+          -# TODO: マイページ
+          = link_to sign_out_path, method: :delete do
+            = image_tag(current_user.image)
+        - else
+          = link_to sign_in_path do
+            %i.fa.fa-user.fa-lg

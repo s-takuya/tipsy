@@ -18,6 +18,7 @@ gem 'omniauth-facebook'
 gem 'activerecord-import'
 gem 'active_decorator'
 gem 'haml'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
