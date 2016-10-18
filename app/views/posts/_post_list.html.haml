@@ -1,3 +1,5 @@
 - @posts.each do |post|
   .post
     = image_tag post.image.url
+    %div
+      = image_tag post.user.image
