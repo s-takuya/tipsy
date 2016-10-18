@@ -1,0 +1,41 @@
+header {
+  height: 70px;
+  line-height: 70px;
+  border-bottom: 1px solid gray;
+}
+
+.header-content {
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
+  width: 50%;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  &__logo {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: lighter;
+    text-decoration: none;
+    color: gray;
+  }
+  &__menu {
+    float: right;
+    list-style-type: none;
+    li {
+      display: inline-block;
+      width: 50px;
+      font-size: 20px;
+      text-align: center;
+      a {
+        display: block;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+        vertical-align: middle;
+        border-radius: 50%;
+      }
+    }
+  }
+}

@@ -1,9 +1,1 @@
-= link_to 'New Post', new_post_path
-%h2 タグ一覧
-%div
-  - Tag.all.each do |tag|
-    = link_to '#' + tag.name, tag_path(name: tag.name)
-%h2 Post一覧
-%div
-  - Post.all.each do |post|
-    = image_tag post.image.url, witdh: 300
+= render 'posts/post_list'
