@@ -1,11 +1,8 @@
-%p#notice= notice
-%h1 Tags
-%table
-  %thead
-    %tr
-      %th Body
-      %th{ colspan: 3 }
-  %tbody
-    - @tags.each do |tag|
-      %tr
-        %td= link_to '#' + tag.name, tag_path(name: tag.name)
+.tag-lists
+  - @tags.each do |tag|
+    .tag
+      = link_to tag_path(name: tag.name) do
+        %h2.tag__name= tag.name
+        .tag__images
+          - tag.posts.take(3).each do |post|
+            = image_tag post.image.url(:medium), class: 'tag__image'

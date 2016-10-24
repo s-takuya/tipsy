@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_attached_file :image
+  has_attached_file :image, styles: { medium: '320x320>' }, convert_options: { medium: '-gravity center -background white -extent 320x320' }
   validates_attachment_presence :image
   validates_attachment_content_type :image, content_type: %r{\Aimage\/.*\Z}
   validates :body, presence: true, length: { maximum: 500 }

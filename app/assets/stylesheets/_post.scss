@@ -1,5 +1,7 @@
-.post {
-  &>img {
-    width: 100%;
+.post-lists {
+  .post {
+    &__image {
+      width: 100%;
+    }
   }
 }
