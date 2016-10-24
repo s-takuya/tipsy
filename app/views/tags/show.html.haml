@@ -1,5 +1,1 @@
-- @posts.each do |post|
-  %div
-    = image_tag post.image.url
-  %div
-    = post.body_with_tag_link
+= render 'posts/post_list', posts: @tag.posts

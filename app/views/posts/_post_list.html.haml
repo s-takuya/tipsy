@@ -1,5 +1,6 @@
-- @posts.each do |post|
-  .post
-    = image_tag post.image.url
-    %div
-      = image_tag post.user.image
+.post-lists
+  - posts.each do |post|
+    .post
+      = image_tag post.image.url(:medium), class: 'post__image'
+      %div
+        = image_tag post.user.image
