@@ -10,8 +10,7 @@
           %i.fa.fa-pencil-square-o.fa-lg
       %li
         - if signed_in?
-          -# TODO: マイページ
-          = link_to sign_out_path, method: :delete do
+          = link_to user_path(current_user.id) do
             = image_tag(current_user.image)
         - else
           = link_to tags_path do
