@@ -5,14 +5,13 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: { maximum: 500 }
   validates :tags, presence: true
 
-  before_validation :save_tags
+  before_validation :delete_post_relation, :save_tags
 
   belongs_to :user
   has_many :tag_posts, dependent: :destroy
   has_many :tags, through: :tag_posts
 
   def save_tags
-    delete_post_relation
     tags << Tag.where_or_create_by_names(scan_tag_names)
   end
 

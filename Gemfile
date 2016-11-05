@@ -25,6 +25,7 @@ group :development, :test do
   gem 'dotenv-rails', :require => 'dotenv/rails-now'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'database_rewinder'
 end
 
 group :development do
