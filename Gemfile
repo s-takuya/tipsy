@@ -20,6 +20,10 @@ gem 'active_decorator'
 gem 'haml'
 gem 'font-awesome-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails', :require => 'dotenv/rails-now'
