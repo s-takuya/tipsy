@@ -5,18 +5,21 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: { maximum: 500 }
   validates :tags, presence: true
 
-  before_validation :bulid_tags
+  before_validation :delete_post_relation, :save_tags
 
   belongs_to :user
   has_many :tag_posts, dependent: :destroy
   has_many :tags, through: :tag_posts
 
-  def bulid_tags
+  def save_tags
+    tags << Tag.where_or_create_by_names(scan_tag_names)
+  end
+
+  def delete_post_relation
     tag_posts.delete_all
-    tag_names = body.scan(/#[^\s]+/)
-    tag_names.each { |name| name.sub!(/^#/, '') }
-    tag_objects = tag_names.map { |name| Tag.new(name: name) }
-    Tag.import(tag_objects, on_duplicate_key_update: :name)
-    tags << Tag.where(name: tag_names)
+  end
+
+  def scan_tag_names
+    body.scan(/#[^\s]+/).each { |name| name.sub!(/^#/, '') }
   end
 end
