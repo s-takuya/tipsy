@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @_current_user ||= begin
-      if (id = cookies[:_A])
+      if (id = cookies[:_A].presence)
         User.find(id)
       end
     end
