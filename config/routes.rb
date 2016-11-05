@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :tags, only: %i(index show), param: :name
   resources :posts, except: %i(index)
+  resources :users, only: %i(show)
 
   delete '/sign_out',             to: 'sessions#destroy', as: :sign_out
   get '/auth/:provider/callback', to: 'sessions#callback'
