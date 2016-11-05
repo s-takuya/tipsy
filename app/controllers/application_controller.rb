@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     end
   rescue ActiveRecord::RecordNotFound
     reset_session
-    redirect_to sign_in_path
+    redirect_to tags_path
   end
 
   def current_user=(user)
@@ -32,6 +32,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_sign_in
-    redirect_to sign_in_path unless signed_in?
+    redirect_to tags_path unless signed_in?
   end
 end

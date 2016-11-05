@@ -1,3 +1,6 @@
+- unless signed_in?
+  = link_to 'facebook　ログイン', '/auth/facebook', class: 'btn btn-primary btn-lg btn-block'
+
 .tag-lists
   - @tags.each do |tag|
     .tag

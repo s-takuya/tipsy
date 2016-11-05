@@ -1,8 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-    render layout: false
-  end
-
   def callback
     user = User.find_or_create_by(uid: auth_hash['uid'], provider: auth_hash['provider']) do |user|
       user.email = auth_hash['info']['email']
@@ -15,12 +11,12 @@ class SessionsController < ApplicationController
 
   def failure
     reset_session
-    redirect_to sign_in_path
+    redirect_to tags_path
   end
 
   def destroy
     sign_out
-    redirect_to sign_in_path
+    redirect_to tags_path
   end
 
   private
