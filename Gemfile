@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+gem 'bootstrap-sass'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2'
 gem 'omniauth-facebook'
